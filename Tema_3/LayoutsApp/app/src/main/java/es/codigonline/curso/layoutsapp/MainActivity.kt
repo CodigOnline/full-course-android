@@ -1,11 +1,11 @@
-package es.codigonline.curso.layoutapp
+package es.codigonline.curso.layoutsapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class LinearActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_linear)
+        setContentView(R.layout.activity_main)
     }
 }

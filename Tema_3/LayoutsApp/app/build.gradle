@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "es.codigonline.curso.layoutapp"
+        applicationId "es.codigonline.curso.layoutsapp"
         minSdk 28
         targetSdk 32
         versionCode 1

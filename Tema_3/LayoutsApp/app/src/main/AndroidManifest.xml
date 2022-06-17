@@ -14,6 +14,15 @@
         android:theme="@style/Theme.LayoutsApp"
         tools:targetApi="31">
         <activity
+            android:name=".Ejercicios5_3"
+            android:exported="false" />
+        <activity
+            android:name=".Ejercicios5_2"
+            android:exported="false" />
+        <activity
+            android:name=".Ejercicios5_1"
+            android:exported="false" />
+        <activity
             android:name=".ConstraintActivity"
             android:exported="true">
             <intent-filter>

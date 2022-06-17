@@ -4,6 +4,10 @@ plugins {
 }
 
 android {
+//Activada la vinculación de vistas
+    viewBinding {
+        enabled true
+    }
 
     compileSdk 32
 

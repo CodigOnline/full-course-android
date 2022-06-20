@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Components</string>
+    <string name="content_description_icon_person_name">Problemas de accesibilidad</string>
+    <string name="helper_text_person_name">Porfavor, Introduza su nombre completo</string>
+    <string name="prefix_person_name">Nombre:</string>
 </resources>

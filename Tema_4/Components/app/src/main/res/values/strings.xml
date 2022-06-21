@@ -5,4 +5,9 @@
     <string name="prefix_person_name">Nombre:</string>
     <string name="fab_content_desc">Boton para crear una nueva persona</string>
     <string name="extended_fab_label">Extended Floating</string>
+    <string name="title">Título</string>
+    <string name="supporting_text">Bla bla bla</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="aceptar">Aceptar</string>
 </resources>

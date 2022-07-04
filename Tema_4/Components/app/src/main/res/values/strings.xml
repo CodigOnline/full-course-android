@@ -10,11 +10,4 @@
     <string name="cerrar">Cerrar</string>
     <string name="cancelar">Cancelar</string>
     <string name="aceptar">Aceptar</string>
-    <string name="app_bar_title">Ajustes</string>
-    <string name="edit">Editar</string>
-    <string name="favorite">Favorito</string>
-    <string name="content_description_edit">Editar opciones de configuración</string>
-    <string name="content_description_favorite">Añadir a favoritos las opciones marcadas</string>
-    <string name="content_description_more">Más acciones...</string>
-    <string name="more">Más opciones</string>
 </resources>

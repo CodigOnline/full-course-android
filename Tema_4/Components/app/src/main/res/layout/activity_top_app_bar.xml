@@ -7,17 +7,21 @@
     tools:context=".TopAppBarActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        app:liftOnScroll="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
+            app:titleCentered="true"
+            app:subtitle="Top App Bar"
+            app:subtitleCentered="true"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|snap"
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="@string/app_name"
+            android:layout_height="wrap_content"
             app:menu="@menu/top_app_bar_menu"
             app:navigationIcon="@drawable/ic_close_24"
-            />
+            app:title="@string/app_name" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -27,7 +31,59 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- Scrollable content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@color/md_theme_dark_primary" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@color/md_theme_dark_primary" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@color/md_theme_dark_primary" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@color/md_theme_dark_primary" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@color/md_theme_dark_primary" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@color/md_theme_dark_primary" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@color/md_theme_dark_primary" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:background="@color/md_theme_dark_primary" />
+        </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 

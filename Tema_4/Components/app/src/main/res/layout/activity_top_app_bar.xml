@@ -7,23 +7,36 @@
     tools:context=".TopAppBarActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        app:liftOnScroll="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            app:titleCentered="true"
-            app:subtitle="Top App Bar"
-            app:subtitleCentered="true"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|snap"
-            android:id="@+id/topAppBar"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            style="?attr/collapsingToolbarLayoutLargeStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:menu="@menu/top_app_bar_menu"
-            app:navigationIcon="@drawable/ic_close_24"
-            app:title="@string/app_name" />
+            android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
+            app:title="@string/app_name"
+            app:titleCentered="true">
+            <com.google.android.material.appbar.MaterialToolbar
+                app:layout_collapseMode="pin"
+                android:id="@+id/topAppBar"
+                app:subtitle="Top App Bar"
+                app:subtitleCentered="true"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:menu="@menu/top_app_bar_menu"
+                app:navigationIcon="@drawable/ic_close_24" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="TODO" />
 
     <!-- Note: A RecyclerView can also be used -->
     <androidx.core.widget.NestedScrollView

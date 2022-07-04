@@ -10,4 +10,10 @@
     <string name="cerrar">Cerrar</string>
     <string name="cancelar">Cancelar</string>
     <string name="aceptar">Aceptar</string>
+    <string name="edit">Editar</string>
+    <string name="favorite">Favorito</string>
+    <string name="more">Más opciones</string>
+    <string name="content_description_edit">Menú para editar el elemento</string>
+    <string name="content_description_favorite">Menú para argegar a favoritos el elemento</string>
+    <string name="content_description_more">Menú para ver más opciones del elemento</string>
 </resources>

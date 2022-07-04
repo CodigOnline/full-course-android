@@ -4,45 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TopAppBarActivity">
+    tools:context=".BottomAppBarActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:liftOnScroll="true">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            style="?attr/collapsingToolbarLayoutLargeStyle"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
-            app:title="@string/app_name"
-            app:titleCentered="true">
-            <com.google.android.material.appbar.MaterialToolbar
-                app:layout_collapseMode="pin"
-                android:id="@+id/topAppBar"
-                app:subtitle="Top App Bar"
-                app:subtitleCentered="true"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:menu="@menu/app_bar_menu"
-                app:navigationIcon="@drawable/ic_close_24" />
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="TODO" />
-
-    <!-- Note: A RecyclerView can also be used -->
     <androidx.core.widget.NestedScrollView
+        android:paddingBottom="100dp"
+        android:clipToPadding="false"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,7 +65,26 @@
                 android:layout_margin="10dp"
                 android:background="@color/md_theme_dark_primary" />
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        app:hideOnScroll="true"
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:navigationIcon="@drawable/ic_close_24"
+        app:menu="@menu/app_bar_menu"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        style="@style/Widget.Material3.Button.TextButton.IconOnly"
+        android:backgroundTint="@color/md_theme_light_surfaceVariant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_calendar_24"
+        app:layout_anchor="@id/bottomAppBar"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

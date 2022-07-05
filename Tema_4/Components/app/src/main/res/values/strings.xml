@@ -16,4 +16,6 @@
     <string name="content_description_edit">Menú para editar el elemento</string>
     <string name="content_description_favorite">Menú para argegar a favoritos el elemento</string>
     <string name="content_description_more">Menú para ver más opciones del elemento</string>
+    <string name="action_1">Action 1</string>
+    <string name="action_2">Action 2</string>
 </resources>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CardActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/card"
+        style="?attr/materialCardViewElevatedStyle"
+        app:strokeColor="@color/md_theme_light_onSurfaceVariant"
+        app:strokeWidth="2dp"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_card"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/landscape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeableImageViewCard"
+                app:srcCompat="@drawable/landscape" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Paisaje soñado"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
+                android:textColor="@color/md_theme_light_onSurfaceVariant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_card" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                android:padding="10dp"
+                android:text="Donec placerat ante ac bibendum dictum. Donec semper, elit sed eleifend porttitor, lectus ante molestie ipsum, vel tempor ex nibh a sem. Morbi ut odio euismod, pulvinar leo cursus, pretium lorem. Integer viverra rhoncus ex at vestibulum. Ut dolor sem, scelerisque at aliquet ac, consectetur a felis. Suspendisse congue tincidunt sem eu luctus ."
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/div1"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/body"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/div1"
+                app:layout_constraintBottom_toBottomOf="parent">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/action_1"
+                    style="?attr/borderlessButtonStyle"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="@string/action_2"
+                    style="?attr/borderlessButtonStyle"
+                    />
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

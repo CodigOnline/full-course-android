@@ -35,6 +35,15 @@ class TimeActivity : AppCompatActivity() {
             .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
             .setCalendarConstraints(constraintsDatePicker)
             .build()
+
+
+        val timePicker = MaterialTimePicker.Builder().setTimeFormat(TimeFormat.CLOCK_24H)
+            .setHour(0)
+            .setMinute(0)
+            .setTitleText("Selecciona la hora para la consulta")
+            .build()
+
+
         datePicker.addOnPositiveButtonClickListener {
             val sdf = SimpleDateFormat("dd/MM/yyyy",Locale("es","ES"))
             binding.textCalendar.text = sdf.format(Date(it)).toString()
@@ -44,12 +53,6 @@ class TimeActivity : AppCompatActivity() {
             datePicker.show(supportFragmentManager,"calendar")
         }
 
-
-        val timePicker = MaterialTimePicker.Builder().setTimeFormat(TimeFormat.CLOCK_24H)
-            .setHour(0)
-            .setMinute(0)
-            .setTitleText("Selecciona la hora para la consulta")
-            .build()
 
         timePicker.addOnPositiveButtonClickListener {
             binding.textTime.text = "${timePicker.hour} : ${timePicker.minute}"

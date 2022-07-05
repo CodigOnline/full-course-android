@@ -54,4 +54,9 @@
         <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
         <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
     </style>
+
+    <style name="ShapeableImageViewRounded">
+        <item  name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

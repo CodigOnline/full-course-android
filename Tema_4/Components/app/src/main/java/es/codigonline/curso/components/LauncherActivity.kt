@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import es.codigonline.curso.components.databinding.ActivityLauncherBinding
+import es.codigonline.curso.components.entities.Usuario
 
 class LauncherActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLauncherBinding
@@ -57,6 +58,11 @@ class LauncherActivity : AppCompatActivity() {
         }
         binding.btnTextInput.setOnClickListener {
             val intent = Intent(this, TextInputActivity::class.java)
+/*            intent.putExtra("nombre","Alvaro Ortega")
+            intent.putExtra("edad",28)*/
+
+            val usuario = Usuario("Alvaro Ortega",28)
+            intent.putExtra("usuario",usuario)
             startActivity(intent)
         }
         binding.btnTime.setOnClickListener {

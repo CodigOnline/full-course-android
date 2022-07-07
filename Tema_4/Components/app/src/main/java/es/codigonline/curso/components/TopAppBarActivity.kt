@@ -14,6 +14,7 @@ class TopAppBarActivity : AppCompatActivity() {
 
         binding.topAppBar.setNavigationOnClickListener {
             Toast.makeText(this, "Cerrar", Toast.LENGTH_SHORT).show()
+            finish()
         }
         binding.topAppBar.setOnMenuItemClickListener {
             //switch

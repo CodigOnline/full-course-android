@@ -56,7 +56,7 @@
             android:name=".ButtonActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".TextInputActivity"
             android:exported="false" />
     </application>
 

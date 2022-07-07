@@ -2,20 +2,17 @@ package es.codigonline.curso.components
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doBeforeTextChanged
 import com.google.android.material.textfield.TextInputEditText
-import es.codigonline.curso.components.databinding.ActivityMainBinding
+import es.codigonline.curso.components.databinding.ActivityTextInputBinding
 
-class MainActivity : AppCompatActivity() {
+class TextInputActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityTextInputBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityTextInputBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.textInputETNamePerson.setOnFocusChangeListener { editText, isFocus ->

@@ -33,10 +33,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="TODO" />
 
     <!-- Note: A RecyclerView can also be used -->
     <androidx.core.widget.NestedScrollView

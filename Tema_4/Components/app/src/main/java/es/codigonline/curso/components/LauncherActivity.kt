@@ -1,19 +1,70 @@
 package es.codigonline.curso.components
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import es.codigonline.curso.components.databinding.ActivityLauncherBinding
 
 class LauncherActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLauncherBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_launcher)
+        binding = ActivityLauncherBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         Log.d("APP", "onCreate()")
     }
 
     override fun onStart() {
         super.onStart()
         Log.d("APP", "onStart()")
+        binding.btnTopAppBar.setOnClickListener {
+            val intent = Intent(this, TopAppBarActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnBottomappbar.setOnClickListener {
+            val intent = Intent(this, BottomAppBarActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnButtonActivity.setOnClickListener {
+            val intent = Intent(this,ButtonActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnCard.setOnClickListener {
+            val intent = Intent(this, CardActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnDialog.setOnClickListener {
+            val intent = Intent(this, DialogActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnFab.setOnClickListener {
+            val intent = Intent(this, FABActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnImage.setOnClickListener {
+            val intent = Intent(this, ImageActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnProgress.setOnClickListener {
+            val intent = Intent(this, ProgressActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnSelections.setOnClickListener {
+            val intent = Intent(this, SelectionsActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnTextInput.setOnClickListener {
+            val intent = Intent(this, TextInputActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnTime.setOnClickListener {
+            val intent = Intent(this, TimeActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
     override fun onResume() {

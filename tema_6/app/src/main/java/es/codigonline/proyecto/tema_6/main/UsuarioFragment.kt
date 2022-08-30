@@ -1,4 +1,4 @@
-package es.codigonline.proyecto.tema_6
+package es.codigonline.proyecto.tema_6.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

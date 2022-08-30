@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.BlankFragment">
+    android:background="@color/teal_700"
+    tools:context=".ejercicio.AFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragmento de Blank" />
+        android:text="Fragment A" />
 
 </FrameLayout>

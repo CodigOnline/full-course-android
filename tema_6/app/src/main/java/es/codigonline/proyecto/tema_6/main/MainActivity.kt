@@ -1,4 +1,4 @@
-package es.codigonline.proyecto.tema_6
+package es.codigonline.proyecto.tema_6.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

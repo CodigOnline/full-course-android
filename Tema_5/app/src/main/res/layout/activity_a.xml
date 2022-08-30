@@ -38,22 +38,31 @@
         android:id="@+id/go_to_b"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/g_v_10"
+        android:text="GO TO B"
         app:layout_constraintEnd_toEndOf="@id/g_v_90"
-        app:layout_constraintTop_toTopOf="@id/g_h_10"
-        android:text="GO TO B"/>
+        app:layout_constraintStart_toStartOf="@id/g_v_10"
+        app:layout_constraintTop_toTopOf="@id/g_h_10" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv"
-        android:layout_marginTop="16dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:hint="Aquí va el texto de la activity B"
         android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="@id/g_v_10"
-        app:layout_constraintEnd_toEndOf="@id/g_v_90"
         android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-        app:layout_constraintTop_toBottomOf="@id/go_to_b"/>
+        app:layout_constraintEnd_toEndOf="@id/g_v_90"
+        app:layout_constraintStart_toStartOf="@id/g_v_10"
+        app:layout_constraintTop_toBottomOf="@id/go_to_b" />
 
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/accion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Acción"
+        app:layout_constraintEnd_toEndOf="@id/g_v_90"
+        app:layout_constraintStart_toStartOf="@id/g_v_10"
+        app:layout_constraintTop_toBottomOf="@id/tv" />
 </androidx.constraintlayout.widget.ConstraintLayout>

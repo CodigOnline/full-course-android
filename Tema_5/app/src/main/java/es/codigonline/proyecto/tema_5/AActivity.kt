@@ -1,6 +1,7 @@
 package es.codigonline.proyecto.tema_5
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -22,6 +23,26 @@ class AActivity : AppCompatActivity() {
             contractWithB.launch(intent)
             // startActivity(intent)
         }
+
+        binding.accion.setOnClickListener {
+            val intent = Intent().apply {
+                action = Intent.ACTION_DIAL
+                data = Uri.parse("tel:+34612123123")
+            }
+
+            /*
+            packageManager?.let {
+                it.resolveActivity(intent, 0)?.let {
+                    startActivity(intent)
+                }
+            }
+            */
+            intent.resolveActivity(packageManager)?.let {
+                startActivity(intent)
+            }
+
+
+        }
     }
 
     val contractWithB =
@@ -35,7 +56,7 @@ class AActivity : AppCompatActivity() {
                     val extras = intent.extras!!
                     val texto = extras.getString("texto")!!
                     binding.tv.setText(texto)
-                   // Toast.makeText(this, texto, Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(this, texto, Toast.LENGTH_SHORT).show()
                 }
             }
 

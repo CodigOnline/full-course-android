@@ -11,4 +11,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
+    override fun onStart() {
+        super.onStart()
+        binding.addFragment.setOnClickListener {
+
+            val supportFragmentManager = supportFragmentManager
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.add(binding.llFragments.id, UsuarioFragment())
+            transaction.commit()
+        }
+    }
 }

@@ -15,7 +15,8 @@ class TextInputActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTextInputBinding.inflate(layoutInflater)
 
-       /* val nombre = intent.extras?.getString("nombre")
+       /*
+       val nombre = intent.extras?.getString("nombre")
         nombre?.let {
             binding.textInputETNamePerson.setText(it)
         }
@@ -23,7 +24,8 @@ class TextInputActivity : AppCompatActivity() {
         edad?.let {
             val data = "${binding.textInputETNamePerson.text.toString()} - ${it}"
             binding.textInputETNamePerson.setText(data)
-        }*/
+        }
+        */
 
         val usuario = intent.extras!!.getParcelable<Usuario>("usuario")
 

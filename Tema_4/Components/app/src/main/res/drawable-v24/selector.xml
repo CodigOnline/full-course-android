@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- WHEN IS CHECKED -->
+    <item android:drawable="@color/md_theme_light_surfaceVariant" android:state_checked="false" />
+    <!-- WHEN IS NOT CHECKED -->
+    <item android:drawable="@color/md_theme_dark_errorContainer" android:state_checked="true" />
+
+</selector>

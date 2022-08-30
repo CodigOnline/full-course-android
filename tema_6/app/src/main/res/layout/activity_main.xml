@@ -13,17 +13,15 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9" />
 
-    <LinearLayout
-        android:id="@+id/ll_fragments"
+    <FrameLayout
+        android:id="@+id/fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

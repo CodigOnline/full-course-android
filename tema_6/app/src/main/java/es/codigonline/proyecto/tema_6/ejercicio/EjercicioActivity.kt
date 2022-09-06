@@ -6,7 +6,7 @@ import android.os.Bundle
 import es.codigonline.proyecto.tema_6.R
 import es.codigonline.proyecto.tema_6.databinding.ActivityEjercicioBinding
 
-class EjercicioActivity : AppCompatActivity() {
+class EjercicioActivity : AppCompatActivity(), AFragment.LogicaFragmentA {
 
     lateinit var binding: ActivityEjercicioBinding
     var orientation = 0
@@ -28,7 +28,7 @@ class EjercicioActivity : AppCompatActivity() {
         }
     }
 
-    fun loadFragmentB(nombre:String, edad:Int){
+    override fun goToB(nombre:String, edad:Int){
         if (orientation == Configuration.ORIENTATION_LANDSCAPE){
             supportFragmentManager.beginTransaction()
                 .replace(binding.fragmentB!!.id,BFragment.newInstance(nombre,edad))

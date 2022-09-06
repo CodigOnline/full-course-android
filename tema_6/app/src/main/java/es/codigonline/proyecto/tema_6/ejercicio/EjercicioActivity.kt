@@ -8,8 +8,8 @@ import es.codigonline.proyecto.tema_6.databinding.ActivityEjercicioBinding
 
 class EjercicioActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityEjercicioBinding
-    private var orientation = 0
+    lateinit var binding: ActivityEjercicioBinding
+    var orientation = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEjercicioBinding.inflate(layoutInflater)

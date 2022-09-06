@@ -20,7 +20,7 @@ class EjercicioActivity : AppCompatActivity() {
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             supportFragmentManager.beginTransaction()
                 .add(binding.fragmentA!!.id,AFragment())
-                .add(binding.fragmentB!!.id, BFragment())
+                .add(binding.fragmentB!!.id, BFragment.newInstance("Alvaro",28))
                 .commit()
         } else {
             supportFragmentManager.beginTransaction().add(binding.fragmentA!!.id, AFragment())

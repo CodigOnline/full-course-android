@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import es.codigonline.proyecto.tema_6.databinding.FragmentABinding
 
 
@@ -30,8 +31,10 @@ class AFragment : Fragment() {
         binding.goToB.setOnClickListener {
             val nombre = binding.tieNombre.text.toString()
             val edad = binding.tieEdad.text.toString().toInt()
+            Toast.makeText(requireContext(), "$nombre - $edad", Toast.LENGTH_SHORT).show()
+            activity.loadFragmentB(nombre, edad)
 
-            if (activity.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            /*if (activity.orientation == Configuration.ORIENTATION_LANDSCAPE){
                 activity.supportFragmentManager.beginTransaction()
                     .replace(activity.binding.fragmentB!!.id,BFragment.newInstance(nombre,edad))
                     .commit()
@@ -41,8 +44,7 @@ class AFragment : Fragment() {
                     .replace(activity.binding.fragmentA!!.id,BFragment.newInstance(nombre,edad))
                     .addToBackStack(null)  //simulación de la pila de actividades
                     .commit()
-            }
-            //Toast.makeText(requireContext(), "$nombre - $edad", Toast.LENGTH_SHORT).show()
+            }*/
 
         }
     }

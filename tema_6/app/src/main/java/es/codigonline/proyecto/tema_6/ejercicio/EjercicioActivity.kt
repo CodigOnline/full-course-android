@@ -27,4 +27,18 @@ class EjercicioActivity : AppCompatActivity() {
                 .commit()
         }
     }
+
+    fun loadFragmentB(nombre:String, edad:Int){
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE){
+            supportFragmentManager.beginTransaction()
+                .replace(binding.fragmentB!!.id,BFragment.newInstance(nombre,edad))
+                .commit()
+        }
+        else{
+            supportFragmentManager.beginTransaction()
+                .replace(binding.fragmentA!!.id,BFragment.newInstance(nombre,edad))
+                .addToBackStack(null)  //simulación de la pila de actividades
+                .commit()
+        }
+    }
 }

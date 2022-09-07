@@ -19,6 +19,11 @@
         android:name="es.codigonline.proyecto.tema_6.navegacion.DosFragment"
         android:label="fragment_dos"
         tools:layout="@layout/fragment_dos" >
+        <argument
+            android:name="edad"
+            app:argType="integer"
+            app:nullable="false"
+            />
         <action
             android:id="@+id/to_tresFragment"
             app:destination="@id/tresFragment" />

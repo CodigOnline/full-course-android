@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
+import androidx.navigation.fragment.navArgs
 import es.codigonline.proyecto.tema_6.R
 import es.codigonline.proyecto.tema_6.databinding.FragmentDosBinding
 import es.codigonline.proyecto.tema_6.databinding.FragmentUnoBinding
@@ -14,7 +15,7 @@ import es.codigonline.proyecto.tema_6.databinding.FragmentUnoBinding
 class DosFragment : Fragment() {
     private val binding get() = _binding!!
     private var _binding: FragmentDosBinding? = null
-
+    private val args: DosFragmentArgs by navArgs()
     private lateinit var navController: NavController
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +33,8 @@ class DosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val edad = args.edad
+        binding.tv1.text = edad.toString()
         binding.toTresFragment.setOnClickListener {
             navController.navigate(DosFragmentDirections.toTresFragment())
         }

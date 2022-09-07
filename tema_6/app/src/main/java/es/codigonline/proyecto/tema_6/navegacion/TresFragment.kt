@@ -10,11 +10,6 @@ import es.codigonline.proyecto.tema_6.R
 import es.codigonline.proyecto.tema_6.databinding.FragmentDosBinding
 import es.codigonline.proyecto.tema_6.databinding.FragmentTresBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 class TresFragment : Fragment() {
     private val binding get() = _binding!!
     private var _binding: FragmentTresBinding? = null
@@ -40,7 +35,7 @@ class TresFragment : Fragment() {
             navController.navigate(TresFragmentDirections.toUnoFragment())
         }
         binding.toDosFragment.setOnClickListener {
-            navController.navigate(TresFragmentDirections.toDosFragment())
+            navController.navigate(TresFragmentDirections.toDosFragment(1000))
         }
     }
 

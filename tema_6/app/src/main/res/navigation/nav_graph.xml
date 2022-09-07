@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/unoFragment">
+
+    <fragment
+        android:id="@+id/unoFragment"
+        android:name="es.codigonline.proyecto.tema_6.navegacion.UnoFragment"
+        android:label="fragment_uno"
+        tools:layout="@layout/fragment_uno" >
+        <action
+            android:id="@+id/to_dosFragment"
+            app:destination="@id/dosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dosFragment"
+        android:name="es.codigonline.proyecto.tema_6.navegacion.DosFragment"
+        android:label="fragment_dos"
+        tools:layout="@layout/fragment_dos" >
+        <action
+            android:id="@+id/to_tresFragment"
+            app:destination="@id/tresFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tresFragment"
+        android:name="es.codigonline.proyecto.tema_6.navegacion.TresFragment"
+        android:label="fragment_tres"
+        tools:layout="@layout/fragment_tres" >
+        <action
+            android:id="@+id/to_unoFragment"
+            app:destination="@id/unoFragment" />
+        <action
+            android:id="@+id/to_dosFragment"
+            app:destination="@id/dosFragment" />
+    </fragment>
+</navigation>

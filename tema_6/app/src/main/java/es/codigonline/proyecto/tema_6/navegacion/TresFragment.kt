@@ -1,10 +1,12 @@
 package es.codigonline.proyecto.tema_6.navegacion
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import es.codigonline.proyecto.tema_6.R
 import es.codigonline.proyecto.tema_6.databinding.FragmentDosBinding
@@ -24,9 +26,12 @@ class TresFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        navController = (requireActivity() as NavegacionActivity).navController
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        activity?.lifecycleScope?.launchWhenCreated {
+            navController = (requireActivity() as NavegacionActivity).navController
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

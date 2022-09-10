@@ -1,4 +1,4 @@
-package es.codigonline.proyecto.tema_7
+package es.codigonline.proyecto.tema_7.listview
 
 import android.content.Context
 import android.view.LayoutInflater

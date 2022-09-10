@@ -1,14 +1,7 @@
-package es.codigonline.proyecto.tema_7
+package es.codigonline.proyecto.tema_7.listview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.LinearLayout
-import android.widget.Toast
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import es.codigonline.proyecto.tema_7.databinding.ActivityMainBinding
 
 

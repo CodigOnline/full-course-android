@@ -14,6 +14,7 @@
         android:background="@color/purple_200"/>
 
     <LinearLayout
+        android:padding="10dp"
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="100dp"

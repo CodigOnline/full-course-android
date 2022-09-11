@@ -3,8 +3,10 @@ package es.codigonline.proyecto.tema_7.rv
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import es.codigonline.proyecto.tema_7.R
 import es.codigonline.proyecto.tema_7.databinding.ActivityRvBinding
 import es.codigonline.proyecto.tema_7.listview.Persona
@@ -23,8 +25,8 @@ class RvActivity : AppCompatActivity() {
         binding.rv.apply {
             adapter = ItemRvAdapter().apply {
                 items = mutableListOf<Persona>(
-                    Persona("Alvaro","C/1"),
-                    Persona("Alvaro2","C/2"),
+                    Persona("Alvaro","C/1C/1C/1C/1C/1C/1C/1C/1C/1C/1C/1C/1C1C/1C/1C/1C/1C/1C/1C/1C/1C/1C/1C1C/1C/1C/1C/1C/1C/1C/1C/1C/1C/1C1C/1C/1C/1C/1C/1C/1C/1C/1C/1C/1C/1C/1C/1"),
+                    Persona("Alvaro2","C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2C/2"),
                     Persona("Alvaro3","C/3"),
                     Persona("Alvaro4","C/4"),
                     Persona("Alvaro4","C/4"),
@@ -116,7 +118,9 @@ class RvActivity : AppCompatActivity() {
                     Persona("Alvaro5","C/5")
                 )
             }
-            layoutManager = LinearLayoutManager(this@RvActivity, RecyclerView.VERTICAL, false)
+           // layoutManager = LinearLayoutManager(this@RvActivity, RecyclerView.HORIZONTAL, false)
+       layoutManager = StaggeredGridLayoutManager(2,RecyclerView.VERTICAL)
+        // layoutManager = GridLayoutManager(this@RvActivity,2,RecyclerView.VERTICAL,false)
         }
     }
 }

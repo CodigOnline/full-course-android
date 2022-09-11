@@ -1,5 +1,6 @@
 package es.codigonline.proyecto.tema_7.rv
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,8 +16,10 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
             notifyDataSetChanged()
         }
 
-    class ViewHolder private constructor(val binding: ItemBinding) :
+    class ViewHolder private constructor(val binding: ItemBinding, val context: Context) :
         RecyclerView.ViewHolder(binding.root) {
+
+        
 
         fun bind(persona: Persona) {
             binding.name.text = persona.name
@@ -27,7 +30,7 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
             fun newInstance(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding)
+                return ViewHolder(binding, parent.context)
             }
         }
     }

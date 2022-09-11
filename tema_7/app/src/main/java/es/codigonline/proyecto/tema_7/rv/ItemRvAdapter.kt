@@ -18,7 +18,7 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
     class ViewHolder private constructor(val binding: ItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun getView(persona: Persona) {
+        fun bind(persona: Persona) {
             binding.name.text = persona.name
             binding.dir.text = persona.dir
         }
@@ -32,11 +32,15 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder.newInstance(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder.newInstance(parent)
+    }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
-        holder.getView(items[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(items[position])
+    }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount(): Int {
+        return items.size
+    }
 }

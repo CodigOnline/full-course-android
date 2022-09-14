@@ -17,11 +17,11 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
 
         val personas = listOf<Persona>(
-            Persona("Alvaro","C/1"),
-            Persona("Alvaro2","C/2"),
-            Persona("Alvaro3","C/3"),
-            Persona("Alvaro4","C/4"),
-            Persona("Alvaro5","C/5")
+            Persona(    1,"Alvaro","C/1"),
+            Persona(2,"Alvaro2","C/2"),
+            Persona(3,"Alvaro3","C/3"),
+            Persona(4,"Alvaro4","C/4"),
+            Persona(5,"Alvaro5","C/5")
         )
 
         val adapter = ItemAdapter(this,personas)

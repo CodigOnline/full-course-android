@@ -16,4 +16,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="25dp"
+        android:src="@drawable/ic_baseline_add_24"
+        android:id="@+id/fab"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

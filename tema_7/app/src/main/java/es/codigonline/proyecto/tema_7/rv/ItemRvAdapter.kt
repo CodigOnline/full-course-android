@@ -42,7 +42,8 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
 
     class ViewHolder private constructor(
         val binding: ItemBinding,
-        val context: Context
+        val context: Context,
+        val adapter: ItemRvAdapter
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -54,10 +55,10 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
         }
 
         companion object {
-            fun newInstance(parent: ViewGroup): ViewHolder {
+            fun newInstance(parent: ViewGroup, adapter: ItemRvAdapter): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding, parent.context)
+                return ViewHolder(binding, parent.context, adapter)
             }
         }
     }
@@ -65,11 +66,31 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
 
-        return ViewHolder.newInstance(parent)
+        return ViewHolder.newInstance(parent, this)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
+        val persona = items[position]
+        holder.bind(persona)
+        holder.binding.edit.setOnClickListener {
+            persona.dir = "1234567890"
+            Toast.makeText(
+                holder.context,
+                "Has clicado edit de ${persona.name}",
+                Toast.LENGTH_SHORT
+            )
+                .show()
+            edit(persona)
+        }
+        holder.binding.delete.setOnClickListener {
+            Toast.makeText(
+                holder.context,
+                "Has clicado delete de ${persona.name}",
+                Toast.LENGTH_SHORT
+            )
+                .show()
+            delete(persona)
+        }
 
     }
 

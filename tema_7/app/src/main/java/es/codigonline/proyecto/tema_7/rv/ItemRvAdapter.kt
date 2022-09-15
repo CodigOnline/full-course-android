@@ -42,55 +42,53 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
 
     class ViewHolder private constructor(
         val binding: ItemBinding,
-        val context: Context,
-        val adapter: ItemRvAdapter
+        val context: Context
     ) :
         RecyclerView.ViewHolder(binding.root) {
+
+        lateinit var adapter:ItemRvAdapter
 
         fun bind(persona: Persona) {
             binding.name.text = persona.name
             binding.dir.text = persona.dir
-
+            binding.edit.setOnClickListener {
+                persona.dir = "1234567890"
+                Toast.makeText(
+                    context,
+                    "Has clicado edit de ${persona.name}",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+                adapter.edit(persona)
+            }
+            binding.delete.setOnClickListener {
+                Toast.makeText(
+                    context,
+                    "Has clicado delete de ${persona.name}",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+                adapter.delete(persona)
+            }
 
         }
 
         companion object {
-            fun newInstance(parent: ViewGroup, adapter: ItemRvAdapter): ViewHolder {
+            fun newInstance(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding, parent.context, adapter)
+                return ViewHolder(binding, parent.context)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
-
-        return ViewHolder.newInstance(parent, this)
+        return ViewHolder.newInstance(parent)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val persona = items[position]
-        holder.bind(persona)
-        holder.binding.edit.setOnClickListener {
-            persona.dir = "1234567890"
-            Toast.makeText(
-                holder.context,
-                "Has clicado edit de ${persona.name}",
-                Toast.LENGTH_SHORT
-            )
-                .show()
-            edit(persona)
-        }
-        holder.binding.delete.setOnClickListener {
-            Toast.makeText(
-                holder.context,
-                "Has clicado delete de ${persona.name}",
-                Toast.LENGTH_SHORT
-            )
-                .show()
-            delete(persona)
-        }
+        holder.adapter = this
+        holder.bind(items[position])
 
     }
 

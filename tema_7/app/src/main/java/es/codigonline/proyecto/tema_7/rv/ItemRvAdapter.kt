@@ -11,6 +11,7 @@ import es.codigonline.proyecto.tema_7.listview.Persona
 
 class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
 
+    lateinit var listener: AdapterRvFunctions
     var items = mutableListOf<Persona>()
         set(value) {
             field = value
@@ -32,12 +33,14 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
         items[pos] = persona
 
         notifyItemChanged(pos)
+        listener.edit(persona)
     }
 
     fun delete(persona: Persona) {
         val pos = items.indexOf(persona)
         items.removeAt(pos)
         notifyItemRemoved(pos)
+        listener.delete(persona)
     }
 
     class ViewHolder private constructor(
@@ -53,21 +56,11 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
             binding.dir.text = persona.dir
             binding.edit.setOnClickListener {
                 persona.dir = "1234567890"
-                Toast.makeText(
-                    context,
-                    "Has clicado edit de ${persona.name}",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
+
                 adapter.edit(persona)
             }
             binding.delete.setOnClickListener {
-                Toast.makeText(
-                    context,
-                    "Has clicado delete de ${persona.name}",
-                    Toast.LENGTH_SHORT
-                )
-                    .show()
+
                 adapter.delete(persona)
             }
 
@@ -95,4 +88,9 @@ class ItemRvAdapter : RecyclerView.Adapter<ItemRvAdapter.ViewHolder>() {
     override fun getItemCount(): Int {
         return items.size
     }
+}
+
+interface AdapterRvFunctions{
+    fun edit(persona: Persona)
+    fun delete(persona: Persona)
 }

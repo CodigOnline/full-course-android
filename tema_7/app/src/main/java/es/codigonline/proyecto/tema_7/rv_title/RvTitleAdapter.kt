@@ -1,6 +1,5 @@
 package es.codigonline.proyecto.tema_7.rv_title
 
-import android.provider.ContactsContract.Data
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +16,26 @@ class RvTitleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         data class ProductoTitle(val title: String) : DataItem() {}
     }
 
-    var items = mutableListOf<DataItem>()
+    private var items = mutableListOf<DataItem>()
+    fun addAll(productos: MutableList<Producto>) {
+
+
+        //RECUEPRAR TODAS LAS MARCAS
+        //RECUEPRAR TODOS LOS PRODUCTOS DE UNA MARCA
+
+        val marcas = productos.map { producto -> producto.marca }.toSet()
+        marcas.forEach { marca ->
+            val filtro = productos.filter { producto -> producto.marca == marca }.map { producto -> DataItem.ProductoItem(producto)  }
+            items.add(DataItem.ProductoTitle(marca))
+            items.addAll(filtro)
+
+ /*           filtro.forEach {
+                items.add(DataItem.ProductoItem(it))
+            }*/
+
+        }
+
+    }
 
     class TitleViewHolder private constructor(val binding: TitleProductoBinding) :
         RecyclerView.ViewHolder(binding.root) {

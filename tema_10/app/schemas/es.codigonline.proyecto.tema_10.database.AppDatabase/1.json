@@ -1,0 +1,165 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "436f711cbf14b7e1afb0b92b14ff5061",
+    "entities": [
+      {
+        "tableName": "alumnos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nombre` TEXT NOT NULL, `apellido` TEXT NOT NULL, `edad` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "apellido",
+            "columnName": "apellido",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "edad",
+            "columnName": "edad",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "materias",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nombre` TEXT NOT NULL, `aula` TEXT NOT NULL, `descripcion` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "aula",
+            "columnName": "aula",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descripcion",
+            "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "notas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`alumno_id` INTEGER NOT NULL, `materia_id` INTEGER NOT NULL, `nota` REAL NOT NULL, PRIMARY KEY(`alumno_id`, `materia_id`), FOREIGN KEY(`alumno_id`) REFERENCES `alumnos`(`id`) ON UPDATE CASCADE ON DELETE CASCADE , FOREIGN KEY(`materia_id`) REFERENCES `materias`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "alumnoId",
+            "columnName": "alumno_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "materiaId",
+            "columnName": "materia_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nota",
+            "columnName": "nota",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "alumno_id",
+            "materia_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_notas_alumno_id",
+            "unique": false,
+            "columnNames": [
+              "alumno_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notas_alumno_id` ON `${TABLE_NAME}` (`alumno_id`)"
+          },
+          {
+            "name": "index_notas_materia_id",
+            "unique": false,
+            "columnNames": [
+              "materia_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notas_materia_id` ON `${TABLE_NAME}` (`materia_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "alumnos",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "alumno_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "materias",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "materia_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '436f711cbf14b7e1afb0b92b14ff5061')"
+    ]
+  }
+}

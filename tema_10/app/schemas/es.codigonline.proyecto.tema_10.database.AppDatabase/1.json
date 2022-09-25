@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "436f711cbf14b7e1afb0b92b14ff5061",
+    "identityHash": "f3959ee78aaeb280b1fa2d648dc16f41",
     "entities": [
       {
         "tableName": "alumnos",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nombre` TEXT NOT NULL, `apellido` TEXT NOT NULL, `edad` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nombre` TEXT NOT NULL, `apellido` TEXT NOT NULL, `edad` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `create_at` INTEGER NOT NULL, `update_at` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "nombre",
@@ -31,6 +31,18 @@
             "columnName": "id",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "createAt",
+            "columnName": "create_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updateAt",
+            "columnName": "update_at",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -44,7 +56,7 @@
       },
       {
         "tableName": "materias",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nombre` TEXT NOT NULL, `aula` TEXT NOT NULL, `descripcion` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nombre` TEXT NOT NULL, `aula` TEXT NOT NULL, `descripcion` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `create_at` INTEGER NOT NULL, `update_at` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "nombre",
@@ -69,6 +81,18 @@
             "columnName": "id",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "createAt",
+            "columnName": "create_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updateAt",
+            "columnName": "update_at",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -82,7 +106,7 @@
       },
       {
         "tableName": "notas",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`alumno_id` INTEGER NOT NULL, `materia_id` INTEGER NOT NULL, `nota` REAL NOT NULL, PRIMARY KEY(`alumno_id`, `materia_id`), FOREIGN KEY(`alumno_id`) REFERENCES `alumnos`(`id`) ON UPDATE CASCADE ON DELETE CASCADE , FOREIGN KEY(`materia_id`) REFERENCES `materias`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`alumno_id` INTEGER NOT NULL, `materia_id` INTEGER NOT NULL, `nota` REAL NOT NULL, `create_at` INTEGER NOT NULL, `update_at` INTEGER NOT NULL, PRIMARY KEY(`alumno_id`, `materia_id`), FOREIGN KEY(`alumno_id`) REFERENCES `alumnos`(`id`) ON UPDATE CASCADE ON DELETE CASCADE , FOREIGN KEY(`materia_id`) REFERENCES `materias`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "alumnoId",
@@ -100,6 +124,18 @@
             "fieldPath": "nota",
             "columnName": "nota",
             "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createAt",
+            "columnName": "create_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updateAt",
+            "columnName": "update_at",
+            "affinity": "INTEGER",
             "notNull": true
           }
         ],
@@ -159,7 +195,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '436f711cbf14b7e1afb0b92b14ff5061')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f3959ee78aaeb280b1fa2d648dc16f41')"
     ]
   }
 }

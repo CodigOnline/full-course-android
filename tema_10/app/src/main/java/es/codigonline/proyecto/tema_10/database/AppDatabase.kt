@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import es.codigonline.proyecto.tema_10.database.converts.DateConverter
 import es.codigonline.proyecto.tema_10.database.entities.Alumno
 import es.codigonline.proyecto.tema_10.database.entities.Materia
 import es.codigonline.proyecto.tema_10.database.entities.Nota
@@ -12,6 +14,7 @@ import es.codigonline.proyecto.tema_10.database.entities.Nota
     entities = [Alumno::class, Materia::class, Nota::class],
     version = 1
 )
+@TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     companion object {
         private var db: AppDatabase? = null

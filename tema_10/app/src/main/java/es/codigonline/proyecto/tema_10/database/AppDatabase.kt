@@ -6,6 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import es.codigonline.proyecto.tema_10.database.converts.DateConverter
+import es.codigonline.proyecto.tema_10.database.daos.AlumnoDao
+import es.codigonline.proyecto.tema_10.database.daos.MateriaDao
+import es.codigonline.proyecto.tema_10.database.daos.NotaDao
 import es.codigonline.proyecto.tema_10.database.entities.Alumno
 import es.codigonline.proyecto.tema_10.database.entities.Materia
 import es.codigonline.proyecto.tema_10.database.entities.Nota
@@ -16,6 +19,11 @@ import es.codigonline.proyecto.tema_10.database.entities.Nota
 )
 @TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun alumnoDao(): AlumnoDao
+    abstract fun materiaDao(): MateriaDao
+    abstract fun notaDao(): NotaDao
+
     companion object {
         private var db: AppDatabase? = null
 

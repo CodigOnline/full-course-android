@@ -9,6 +9,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.sqlite.db.SimpleSQLiteQuery
 import es.codigonline.proyecto.tema_10.database.AppDatabase
 import es.codigonline.proyecto.tema_10.database.entities.Alumno
+import es.codigonline.proyecto.tema_10.database.entities.Materia
+import es.codigonline.proyecto.tema_10.database.entities.Nota
 import es.codigonline.proyecto.tema_10.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -38,8 +40,28 @@ class MainActivity : AppCompatActivity() {
             Log.d("ALUMNO", it.toString())
         }
 
-        binding.fab.setOnClickListener {
+        binding.alumno.setOnClickListener {
             viewModel.saveAlumno(Alumno("Alvaro", "Reyes", 18))
+                .observe(this) {
+                    Toast.makeText(this@MainActivity, "El id creado es: $it", Toast.LENGTH_LONG)
+                        .show()
+                }
+        }
+        binding.materia.setOnClickListener {
+            viewModel.saveMateria(
+                Materia(
+                    "M03 - Programación",
+                    "215",
+                    "Programación de Básica Orientada Objetos"
+                )
+            )
+                .observe(this) {
+                    Toast.makeText(this@MainActivity, "El id creado es: $it", Toast.LENGTH_LONG)
+                        .show()
+                }
+        }
+        binding.nota.setOnClickListener {
+            viewModel.saveNota(Nota(1, 2, 7.68))
                 .observe(this) {
                     Toast.makeText(this@MainActivity, "El id creado es: $it", Toast.LENGTH_LONG)
                         .show()

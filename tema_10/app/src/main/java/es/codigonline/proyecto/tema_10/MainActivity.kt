@@ -40,6 +40,12 @@ class MainActivity : AppCompatActivity() {
             Log.d("ALUMNO", it.toString())
         }
 
+        viewModel.materiasConNotas.observe(this) {
+            it.forEach {
+                Log.d("MATERIA", it.toString())
+            }
+        }
+
         binding.alumno.setOnClickListener {
             viewModel.saveAlumno(Alumno("Alvaro", "Reyes", 18))
                 .observe(this) {

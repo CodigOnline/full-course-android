@@ -15,7 +15,7 @@ class MainActivityViewModel : ViewModel() {
     private val materiaDao = App.db.materiaDao()
     private val notaDao = App.db.notaDao()
 
-    val alumnos = alumnoDao.findAll().asLiveData()
+    val alumnos = alumnoDao.findAllWithMaterias().asLiveData()
     val materiasConNotas = materiaDao.findAllWithNotas().asLiveData()
 
     fun saveAlumno(alumno: Alumno): LiveData<Long> {

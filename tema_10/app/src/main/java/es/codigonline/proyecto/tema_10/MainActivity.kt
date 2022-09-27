@@ -2,6 +2,7 @@ package es.codigonline.proyecto.tema_10
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -33,10 +34,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
     */
-        viewModel.saveAlumno(Alumno("Alvaro", "Reyes", 18))
-            .observe(this) {
-                Toast.makeText(this@MainActivity, "El id creado es: $it", Toast.LENGTH_LONG).show()
-            }
+        viewModel.alumnos.observe(this) {
+            Log.d("ALUMNO", it.toString())
+        }
+
+        binding.fab.setOnClickListener {
+            viewModel.saveAlumno(Alumno("Alvaro", "Reyes", 18))
+                .observe(this) {
+                    Toast.makeText(this@MainActivity, "El id creado es: $it", Toast.LENGTH_LONG)
+                        .show()
+                }
+        }
 
     }
 }

@@ -1,9 +1,6 @@
 package es.codigonline.proyecto.tema_10
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import es.codigonline.proyecto.tema_10.app.App
 import es.codigonline.proyecto.tema_10.database.entities.Alumno
 import kotlinx.coroutines.Dispatchers
@@ -13,6 +10,8 @@ import kotlinx.coroutines.withContext
 class MainActivityViewModel : ViewModel() {
 
     private val alumnoDao = App.db.alumnoDao()
+
+    val alumnos = alumnoDao.findAll().asLiveData()
 
     fun saveAlumno(alumno: Alumno): LiveData<Long> {
         val liveData = MutableLiveData<Long>()
@@ -24,4 +23,15 @@ class MainActivityViewModel : ViewModel() {
         }
         return liveData
     }
+
+   /* fun findAll(): LiveData<List<Alumno>> {
+        val liveData = MutableLiveData<List<Alumno>>()
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                val alumnos = alumnoDao.findAll()
+                liveData.postValue(alumnos)
+            }
+        }
+        return liveData
+    }*/
 }

@@ -36,16 +36,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
     */
-        viewModel.alumnos.observe(this) {
-            Log.d("ALUMNO", it.toString())
-        }
-
-        viewModel.materiasConNotas.observe(this) {
-            it.forEach {
-                Log.d("MATERIA", it.toString())
+        viewModel.alumnos.observe(this) { alumnos ->
+            alumnos.forEach { alumno ->
+                Log.d("ALUMNO", "Nombre del alumno: ${alumno.alumno.nombre}")
+                alumno.notas.forEach { notas ->
+                    Log.d("ALUMNO", "Materia: ${notas.materia.nombre}")
+                    Log.d("ALUMNO", "Nota: ${notas.nota.nota}")
+                }
             }
         }
 
+        /* viewModel.materiasConNotas.observe(this) {
+             it.forEach {
+                 Log.d("MATERIA", it.toString())
+             }
+         }
+ */
         binding.alumno.setOnClickListener {
             viewModel.saveAlumno(Alumno("Alvaro", "Reyes", 18))
                 .observe(this) {

@@ -1,5 +1,6 @@
 package es.codigonline.proyecto.tema_10
 
+import android.database.sqlite.SQLiteConstraintException
 import androidx.lifecycle.*
 import es.codigonline.proyecto.tema_10.app.App
 import es.codigonline.proyecto.tema_10.database.entities.Alumno
@@ -33,8 +34,12 @@ class MainActivityViewModel : ViewModel() {
         val liveData = MutableLiveData<Long>()
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                val id = materiaDao.create(materia)
-                liveData.postValue(id)
+                try {
+                    val id = materiaDao.create(materia)
+                    liveData.postValue(id)
+                } catch (ex: SQLiteConstraintException) {
+                    liveData.postValue(-1)
+                }
             }
         }
         return liveData

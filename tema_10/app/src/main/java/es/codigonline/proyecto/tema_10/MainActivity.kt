@@ -68,8 +68,12 @@ class MainActivity : AppCompatActivity() {
                 )
             )
                 .observe(this) {
-                    Toast.makeText(this@MainActivity, "El id creado es: $it", Toast.LENGTH_LONG)
+                    if (it != -1L)
+                        Toast.makeText(this@MainActivity, "El id creado es: $it", Toast.LENGTH_LONG)
+                            .show()
+                    else Toast.makeText(this@MainActivity, "La matería creada ya existe", Toast.LENGTH_LONG)
                         .show()
+
                 }
         }
         binding.nota.setOnClickListener {

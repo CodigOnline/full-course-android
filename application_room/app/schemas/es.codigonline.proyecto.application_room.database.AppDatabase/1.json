@@ -1,0 +1,392 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "6bb97c84759c6ece985de0cd04be61d1",
+    "entities": [
+      {
+        "tableName": "clientes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nombre` TEXT NOT NULL, `email` TEXT NOT NULL, `password` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `create_at` INTEGER NOT NULL, `update_at` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createAt",
+            "columnName": "create_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updateAt",
+            "columnName": "update_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_clientes_email",
+            "unique": true,
+            "columnNames": [
+              "email"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_clientes_email` ON `${TABLE_NAME}` (`email`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "extras",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nombre` TEXT NOT NULL, `descripcion` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `create_at` INTEGER NOT NULL, `update_at` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descripcion",
+            "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createAt",
+            "columnName": "create_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updateAt",
+            "columnName": "update_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_extras_nombre",
+            "unique": true,
+            "columnNames": [
+              "nombre"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_extras_nombre` ON `${TABLE_NAME}` (`nombre`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "habitaciones",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`numero` INTEGER NOT NULL, `capacidad` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `create_at` INTEGER NOT NULL, `update_at` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "numero",
+            "columnName": "numero",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "capacidad",
+            "columnName": "capacidad",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createAt",
+            "columnName": "create_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updateAt",
+            "columnName": "update_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_habitaciones_numero",
+            "unique": true,
+            "columnNames": [
+              "numero"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_habitaciones_numero` ON `${TABLE_NAME}` (`numero`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "reservas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`fecha` INTEGER NOT NULL, `precio` REAL NOT NULL, `cliente_id` INTEGER, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `create_at` INTEGER NOT NULL, `update_at` INTEGER NOT NULL, FOREIGN KEY(`cliente_id`) REFERENCES `clientes`(`id`) ON UPDATE CASCADE ON DELETE SET NULL )",
+        "fields": [
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "precio",
+            "columnName": "precio",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clienteId",
+            "columnName": "cliente_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createAt",
+            "columnName": "create_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updateAt",
+            "columnName": "update_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_reservas_cliente_id",
+            "unique": false,
+            "columnNames": [
+              "cliente_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_reservas_cliente_id` ON `${TABLE_NAME}` (`cliente_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "clientes",
+            "onDelete": "SET NULL",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "cliente_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "reservas_extras",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`reserva_id` INTEGER NOT NULL, `extra_id` INTEGER NOT NULL, PRIMARY KEY(`reserva_id`, `extra_id`), FOREIGN KEY(`reserva_id`) REFERENCES `reservas`(`id`) ON UPDATE CASCADE ON DELETE CASCADE , FOREIGN KEY(`extra_id`) REFERENCES `extras`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "reservaId",
+            "columnName": "reserva_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "extraId",
+            "columnName": "extra_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "reserva_id",
+            "extra_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_reservas_extras_reserva_id",
+            "unique": false,
+            "columnNames": [
+              "reserva_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_reservas_extras_reserva_id` ON `${TABLE_NAME}` (`reserva_id`)"
+          },
+          {
+            "name": "index_reservas_extras_extra_id",
+            "unique": false,
+            "columnNames": [
+              "extra_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_reservas_extras_extra_id` ON `${TABLE_NAME}` (`extra_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "reservas",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "reserva_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "extras",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "extra_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "reservas_habitaciones",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`reserva_id` INTEGER NOT NULL, `habitacion_id` INTEGER NOT NULL, PRIMARY KEY(`reserva_id`, `habitacion_id`), FOREIGN KEY(`reserva_id`) REFERENCES `reservas`(`id`) ON UPDATE CASCADE ON DELETE CASCADE , FOREIGN KEY(`habitacion_id`) REFERENCES `habitaciones`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "reservaId",
+            "columnName": "reserva_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "habitacionId",
+            "columnName": "habitacion_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "reserva_id",
+            "habitacion_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_reservas_habitaciones_reserva_id",
+            "unique": false,
+            "columnNames": [
+              "reserva_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_reservas_habitaciones_reserva_id` ON `${TABLE_NAME}` (`reserva_id`)"
+          },
+          {
+            "name": "index_reservas_habitaciones_habitacion_id",
+            "unique": false,
+            "columnNames": [
+              "habitacion_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_reservas_habitaciones_habitacion_id` ON `${TABLE_NAME}` (`habitacion_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "reservas",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "reserva_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "habitaciones",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "habitacion_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6bb97c84759c6ece985de0cd04be61d1')"
+    ]
+  }
+}

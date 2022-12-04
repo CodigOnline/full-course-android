@@ -6,7 +6,7 @@ plugins {
 
 android {
 
-    viewBinding {
+    viewBinding{
         enabled true
     }
 

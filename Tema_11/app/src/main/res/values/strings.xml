@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Preferences</string>
+    <string name="prefs_name" translatable="false">es.codigonline.proyecto.preferences.shared_prefs</string>
+    <string name="prefs_is_loggued" translatable="false">is_loggued</string>
+    <string name="prefs_user_email" translatable="false">user_email</string>
+    <string name="prefs_user_password" translatable="false">user_password</string>
+    <string name="prefs_checkbox_recordar" translatable="false">checkbox_recordar</string>
+</resources>
